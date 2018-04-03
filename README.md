@@ -1,19 +1,19 @@
-# 🌙 ng-animate
+# 🥤 animango 🥤
 
-[![npm](https://img.shields.io/npm/v/ng-animate.svg)](https://www.npmjs.com/package/ng-animate)
+[![npm](https://img.shields.io/npm/v/animango.svg)](https://www.npmjs.com/package/animango)
 
-`ng-animate` is a collection of cool, reusable and flexible animations for Angular. It implements all the animations in [animate.css](https://daneden.github.io/animate.css/), but with the power and flexibility of [Angular animations](https://angular.io/guide/animations) instead of CSS.
+`animango` is a collection of cool, reusable and flexible animations for Angular. It implements all the animations in [animate.css](https://daneden.github.io/animate.css/), but with the power and flexibility of [Angular animations](https://angular.io/guide/animations) instead of CSS.
 
-> **Note**: the library requires Angular 4.2+, which introduced [different new animation APIs](http://angularjs.blogspot.it/2017/06/angular-42-now-available.html) needed by `ng-animate`.
+> **Note**: the library requires Angular 4.2+, which introduced [different new animation APIs](http://angularjs.blogspot.it/2017/06/angular-42-now-available.html) needed by `animango`.
 
 ## Demo
 
-The demo of the animations is available at [https://jiayihu.github.io/ng-animate/](https://jiayihu.github.io/ng-animate/).
+The demo of the animations is available at [https://github.com/jdashcode/animango/](https://github.com/jdashcode/animango/).
 
 ## Usage
 
 ```
-npm install ng-animate --save
+npm install animango --save
 ```
 
 ## Example
@@ -23,14 +23,12 @@ Import the animation from the package and pass it to your Angular component usin
 ```javascript
 // my-component.component.ts
 import { trigger, transition, useAnimation } from '@angular/animations';
-import { bounce } from 'ng-animate';
+import { bounce } from 'animango';
 
 @Component({
   selector: 'my-component',
   templateUrl: 'my-component.component.html',
-  animations: [
-    trigger('bounce', [transition('* => *', useAnimation(bounce))])
-  ],
+  animations: [trigger('bounce', [transition('* => *', useAnimation(bounce))])]
 })
 export class MyComponent {
   bounce: any;
@@ -47,12 +45,12 @@ export class MyComponent {
 It's also possible to import only a subset of the animations:
 
 ```javascript
-import { bounce } from 'ng-animate/lib/bouncing';
+import { bounce } from 'animango/lib/bouncing';
 ```
 
 ### Animation params
 
-**All the animations** provided by `ng-animate` support at least two **optional** params `timing` and `delay` to specify the animation duration and delay. Default value for `timing` is usually `1`s and `0`s for `delay`.  
+**All the animations** provided by `animango` support at least two **optional** params `timing` and `delay` to specify the animation duration and delay. Default value for `timing` is usually `1`s and `0`s for `delay`.  
 You can pass the `params` object using the Javascript API or within the component template:
 
 ```javascript
@@ -60,11 +58,16 @@ You can pass the `params` object using the Javascript API or within the componen
   selector: 'my-component',
   templateUrl: 'my-component.component.html',
   animations: [
-    trigger('bounce', [transition('* => *', useAnimation(bounce, {
-      // Set the duration to 5seconds and delay to 2seconds
-      params: { timing: 5, delay: 2 }
-    }))])
-  ],
+    trigger('bounce', [
+      transition(
+        '* => *',
+        useAnimation(bounce, {
+          // Set the duration to 5seconds and delay to 2seconds
+          params: { timing: 5, delay: 2 }
+        })
+      )
+    ])
+  ]
 })
 export class MyComponent {}
 ```
@@ -81,114 +84,114 @@ All the animations are organized by their group. Many of them have additional pa
 
 ### Attention seekers
 
-- `bounce`
-- `flash`
-- `pulse`
-- `rubberBand`
-- `shake`
-- `swing`
-- `tada`
-- `wobble`
-- `jello`
+* `bounce`
+* `flash`
+* `pulse`
+* `rubberBand`
+* `shake`
+* `swing`
+* `tada`
+* `wobble`
+* `jello`
 
 ### Bouncing
 
-- `bounceIn`
-- `bouceOut`. Additional param: `scale`
+* `bounceIn`
+* `bouceOut`. Additional param: `scale`
 
 The following bouncing animations have additional params `a, b, c, d` for `translate`
 
-- `bounceInDown`
-- `bounceInLeft`
-- `bounceInRight`
-- `bounceInUp`
-- `bounceOutDown`
-- `bounceOutLeft`
-- `bounceOutRight`
-- `bounceOutUp`
+* `bounceInDown`
+* `bounceInLeft`
+* `bounceInRight`
+* `bounceInUp`
+* `bounceOutDown`
+* `bounceOutLeft`
+* `bounceOutRight`
+* `bounceOutUp`
 
 ### Fading
 
 All fading animations have additional params `fromOpacity, toOpacity` for `opacity` transition and `a, b` for `translate`.
 
-- `fadeIn`
-- `fadeInDown`
-- `fadeInLeft`
-- `fadeInRight`
-- `fadeInUp`
-- `fadeOut`
-- `fadeOutDown`
-- `fadeOutLeft`
-- `fadeOutRight`
-- `fadeOutUp`
+* `fadeIn`
+* `fadeInDown`
+* `fadeInLeft`
+* `fadeInRight`
+* `fadeInUp`
+* `fadeOut`
+* `fadeOutDown`
+* `fadeOutLeft`
+* `fadeOutRight`
+* `fadeOutUp`
 
 ### Sliding
 
 Sliding animations are basically fading animations without a change of `opacity`. They can also receive the same params.
 
-- `slideInDown`
-- `slideInLeft`
-- `slideInRight`
-- `slideInUp`
-- `slideOutDown`
-- `slideOutLeft`
-- `slideOutRight`
-- `slideOutUp`
+* `slideInDown`
+* `slideInLeft`
+* `slideInRight`
+* `slideInUp`
+* `slideOutDown`
+* `slideOutLeft`
+* `slideOutRight`
+* `slideOutUp`
 
 ### Flippers
 
-- `flip`
-- `flipInX`
-- `flipInY`
-- `flipOutX`
-- `flipOutY`
+* `flip`
+* `flipInX`
+* `flipInY`
+* `flipOutX`
+* `flipOutY`
 
 ### LightSpeed
 
-- `lightSpeedIn`
-- `lightSpeedOut`
+* `lightSpeedIn`
+* `lightSpeedOut`
 
 ### Rotating
 
 All rotating animations have additional params `fromOpacity, toOpacity` for `opacity` transition, `origin` for `transform-origin` and `degrees` for `rotate3d`.
 
-- `rotateIn`
-- `rotateInDownLeft`
-- `rotateInDownRight`
-- `rotateInUpLeft`
-- `rotateInUpRight`
-- `rotateOut`
-- `rotateOutDownLeft`
-- `rotateOutDownRight`
-- `rotateOutUpLeft`
-- `rotateOutUpRight`
+* `rotateIn`
+* `rotateInDownLeft`
+* `rotateInDownRight`
+* `rotateInUpLeft`
+* `rotateInUpRight`
+* `rotateOut`
+* `rotateOutDownLeft`
+* `rotateOutDownRight`
+* `rotateOutUpLeft`
+* `rotateOutUpRight`
 
 ### Specials
 
-- `jackInTheBox`
-- `hinge`
-- `rollIn`
-- `rollOut`
+* `jackInTheBox`
+* `hinge`
+* `rollIn`
+* `rollOut`
 
 ### Zooming
 
-- `zoomIn`
-- `zoomOut`
+* `zoomIn`
+* `zoomOut`
 
 The following zooming animations have additional params `a, b` for `translate`
 
-- `zoomInDown`
-- `zoomInLeft`
-- `zoomInRight`
-- `zoomInUp`
-- `zoomOutDown`
-- `zoomOutLeft`
-- `zoomOutRight`
-- `zoomOutUp`
+* `zoomInDown`
+* `zoomInLeft`
+* `zoomInRight`
+* `zoomInUp`
+* `zoomOutDown`
+* `zoomOutLeft`
+* `zoomOutRight`
+* `zoomOutUp`
 
 ## Advanced params
 
-Many of the animations support also other params like `scale`, `fromOpacity`, `toOpacity` and much more, allowing extremely flexible usage and customisation if you're not happy with default values. 
+Many of the animations support also other params like `scale`, `fromOpacity`, `toOpacity` and much more, allowing extremely flexible usage and customisation if you're not happy with default values.
 
 Single letters like `a, b, c, d` are used for the steps of some animations: `a` is the starting value, `d` is the ending.  
 The animated property they refer to depends on the animation and the direction: usually `translate` on axis Y from `-Down/-Up`, axis X for `-Left/-Right`.
@@ -198,11 +201,11 @@ useAnimation(bounceInDown, {
   params: {
     timing: 5,
 
-    // Specify granular values for `translate` on axis Y during 'bounceInDown' 
+    // Specify granular values for `translate` on axis Y during 'bounceInDown'
     a: '-3000px',
     b: '25px',
     c: '-10px',
-    d: '5px',
+    d: '5px'
   }
-})
+});
 ```
